@@ -1,0 +1,64 @@
+<div>
+    <!-- DESKTOP NAVIGATION BAR -->
+    <nav class="hidden lg:flex items-center justify-between flex-row absolute z-50 w-full px-8 h-16  ml-auto text-white font-semibold">
+        <a href="/"
+            class="font-bold font-subtitles uppercase border-b-8 border-principal-100 text-principal-100 text-2xl hover:bg-principal-100 p-2 hover:text-white">
+            Cakelandy
+        </a>
+    
+        <div class="space-x-5">
+            <a href="#" class="nav-link">
+                Principal
+            </a>
+            <a href="#sobre" class="nav-link">
+                Sobre Nós
+            </a>
+            <a href="#menu" class="nav-link">
+                Menu
+            </a>
+            <a href="#confeiteiros" class="nav-link">
+                Confeiteiros
+            </a>
+            <a href="/login" class="p-2 bg-principal-100  hover:font-bold hover:bg-principal-200 hover:text-white">
+                Entrar
+            </a>
+        </div>
+    </nav>
+
+    <!-- MOBILE NAVIGATION BAR -->
+    <nav class="relative sm:block lg:hidden h-12 flex justify-between items-center px-4 bg-principal-100">
+        <a href="/" class="text-white font-bold">
+            Cakelandy
+        </a>
+        
+        <div x-data="{ isOpen: false }">
+            <button class="text-gray-200"
+                @click="isOpen = !isOpen">
+                <svg x-show="!isOpen" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                <svg x-show="isOpen" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+
+            <div x-show="isOpen" class="absolute left-0 top-12 h-screen w-full flex flex-col justify-start items-start px-3 py-5 space-y-2 bg-black bg-opacity-80">
+                <div class="flex flex-col justify-start items-start space-y-2">
+                    <a href="#" class="">
+                        Inicio
+                    </a>
+                    <a href="#sobre" class="">
+                        Sobre Nós
+                    </a>
+                    <a href="#menu" class="">
+                        Menu
+                    </a>
+                    <a href="#confeiteiros" class="">
+                        Confeiteiros
+                    </a>
+                </div>
+
+                <a href="#" class="w-full p-2 inline-flex justify-center items-center bg-principal-100 text-white">
+                    <span>Entrar</span>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+                </a>
+            </div>
+        </div>
+    </nav>
+</div>
