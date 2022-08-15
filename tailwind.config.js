@@ -18,6 +18,7 @@ module.exports = {
       'bg_2': "url('/img/bg_2.jpg')",
       'bg_3': "url('/img/bg_3.jpg')",
       'bg_4': "url('/img/bg_4.jpg')",
+      'b_2': "url('/img/b2.jpg')",
     },
     backgroundPosition: {
       bottom: 'bottom',
