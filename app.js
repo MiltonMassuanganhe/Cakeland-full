@@ -75,23 +75,23 @@ app.get('/signup', (req, res) => {
 //     res.status(200).json({user})
 // })
 
-function checkToken(req, res, next) {
+// function checkToken(req, res, next) {
     
-    const authHeader = res.headers['authorization']
-    const token = authHeader && authHeader.split(' ')[1]
+//     const authHeader = res.headers['authorization']
+//     const token = authHeader && authHeader.split(' ')[1]
 
-    if(!token) {
-        return res.status(401).json({msg: 'Acesso Negado!'})
-    }
-    try {
-        const secret = process.env.secret
-        jwt.verify(token, secret)
-        next()
-    }
-    catch(error){
-        res.status(400).json({msg: 'Token invalid'})
-    }
-}
+//     if(!token) {
+//         return res.status(401).json({msg: 'Acesso Negado!'})
+//     }
+//     try {
+//         const secret = process.env.secret
+//         jwt.verify(token, secret)
+//         next()
+//     }
+//     catch(error){
+//         res.status(400).json({msg: 'Token invalid'})
+//     }
+// }
 
 //Register User
 app.post('/signup', async (req, res) => {
@@ -132,15 +132,16 @@ app.post('/signup', async (req, res) => {
 })
 
 //Login User
-app.post ('/login', async (req, res) => {
-    console.log(req.body)
+  app.post ('/login', async (req, res) => {
     const {username, password} = req.body
+
+    // console.log(req.body.username, req.body.password)
 
     if(!username){
         return res.status(402).json({msg: 'O Utilizador é obrigatório!'})
     }
     if(!password){
-        return res.status(402).json({msg: 'A palavra-passe é orbigatória!'})
+        return res.status(402).json({msg: 'A palavra-passe é obigatória!'})
     }
 
     //Check if user exists
@@ -158,7 +159,7 @@ app.post ('/login', async (req, res) => {
     }
 
     try {
-        const secret = process.env.secret
+        const secret = process.env.JWT_KEY
 
         const token = jwt.sign(
             {
